@@ -1,5 +1,5 @@
 // API Base URL - Use relative path for production, localhost for development
-const API_BASE_URL = process.env.REACT_APP_API_URL || '/api';
+const API_BASE_URL = process.env.REACT_APP_API_URL || '/api'; // Updated for Vercel deployment
 
 // Add a new study record
 export const addStudyRecord = async (recordData) => {
