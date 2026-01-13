@@ -8,9 +8,7 @@
     "server": "nodemon backend/server.js",
     "client": "cd client && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "cd client && npm install && npm run build",
-    "vercel-dev": "vercel dev",
-    "vercel-build": "cd client && npm install && npm run build"
+    "build": "cd client && npm install && npm run build"
   },
   "keywords": [
     "mern",
@@ -21,15 +19,6 @@
   ],
   "author": "Student",
   "license": "MIT",
-  "dependencies": {
-    "bcryptjs": "^3.0.3",
-    "body-parser": "^1.20.4",
-    "cors": "^2.8.5",
-    "dotenv": "^16.6.1",
-    "express": "^4.22.1",
-    "jsonwebtoken": "^9.0.3",
-    "mongoose": "^7.8.8"
-  },
   "devDependencies": {
     "concurrently": "^8.2.2",
     "nodemon": "^3.1.11"
