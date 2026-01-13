@@ -1,0 +1,342 @@
+/* App.css - Premium Dark Theme for Study Management System */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-glass: rgba(30, 41, 59, 0.7);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent-primary: #00d2ff;
+  --accent-secondary: #3a7bd5;
+  --accent-gradient: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+  --danger: #ef4444;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --border-glass: rgba(255, 255, 255, 0.1);
+  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-header {
+  background: var(--accent-gradient);
+  color: white;
+  text-align: center;
+  padding: 3rem 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.App-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  z-index: 1;
+}
+
+.App-header h1,
+.App-header p {
+  position: relative;
+  z-index: 2;
+}
+
+.App-header h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.App-header p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+.App-main {
+  flex: 1;
+  padding: 3rem 0;
+}
+
+/* Navbar Enhancement */
+.navbar {
+  background: var(--bg-glass) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.navbar-brand a {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+/* Layout Containers */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+}
+
+.home-view,
+.timetable-view,
+.dashboard-view {
+  padding: 0 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Glass Cards */
+.glass-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-glass);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Form Styling */
+.study-record-form {
+  background: var(--bg-secondary);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow-lg);
+  position: sticky;
+  top: 5rem;
+}
+
+.study-record-form h3 {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 1rem;
+  background: #0f172a;
+  border: 1px solid var(--border-glass);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 4px rgba(0, 210, 255, 0.1);
+}
+
+button[type="submit"] {
+  width: 100%;
+  background: var(--accent-gradient);
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 210, 255, 0.4);
+}
+
+/* Record List Styling */
+.study-record-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.study-record-item {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-glass);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.study-record-item:hover {
+  transform: translateX(5px);
+  border-color: var(--accent-primary);
+  background: rgba(30, 41, 59, 0.9);
+}
+
+.record-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.record-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.record-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.detail-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.value {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Timetable Enhancements */
+.study-timetable {
+  background: var(--bg-secondary);
+  border-radius: 20px;
+  border: 1px solid var(--border-glass);
+  overflow: hidden;
+}
+
+.timetable-header {
+  background: var(--accent-gradient);
+  padding: 2rem;
+}
+
+.timetable-grid {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.timetable-item {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-glass);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+/* Progress Bars */
+.progress-bar {
+  height: 8px;
+  background: #334155;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.progress-fill {
+  background: var(--accent-gradient);
+  height: 100%;
+  border-radius: 10px;
+  transition: width 1s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+/* Stats Cards in Dashboard */
+.stat-card {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+/* Toastify Override */
+.Toastify__toast {
+  border-radius: 12px !important;
+  font-family: 'Outfit', sans-serif !important;
+}
+
+/* Footer */
+.App-footer {
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border-glass);
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+/* Responsive Fixes */
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .study-record-form {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .App-header h1 {
+    font-size: 2rem;
+  }
+
+  .record-details {
+    grid-template-columns: 1fr;
+  }
+}
