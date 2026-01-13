@@ -5,6 +5,7 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const path = require('path');
 require('dotenv').config();
 
 const connectDB = require('./lib/mongodb');
@@ -29,6 +30,9 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
 app.use(bodyParser.json());
+
+// Serve static files from the React app build directory
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 // --- Health Check ---
 app.get('/health', (req, res) => {
@@ -183,6 +187,11 @@ app.get('/api/analytics', async (req, res) => {
         console.error('Analytics error:', error);
         res.status(500).json({ success: false, message: 'Server error' });
     }
+});
+
+// Catch all handler: send back React's index.html file for any non-API routes
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/build/index.html'));
 });
 
 // Error handling middleware
